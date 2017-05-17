@@ -1,0 +1,11 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+script:
+  - docker login -u="$DLOGIN" -p="$DPASSWORD"
+  - docker build -t yevhenvolchenko/awsdog:latest .
+  - docker push yevhenvolchenko/awsdog:latest
